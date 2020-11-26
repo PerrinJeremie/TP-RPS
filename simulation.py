@@ -5,12 +5,12 @@ import scipy.stats as st
 import matplotlib.pyplot as plt
 
 N = 5000
-C = 2.1	
+C = 5	
 T = 500
 eps = -0.2
 mu = 0
 
-dist = [4000,500,500]
+dist = [4000,500,500] # Has to be sum N
 
 lCeps = st.poisson(C+eps)
 lCm1 = st.poisson(C-1)
@@ -65,7 +65,7 @@ plt.plot(range(T),pts[0], label = "Rock")
 plt.plot(range(T),pts[1], label = "Scissors")
 plt.plot(range(T),pts[2], label = "Scissors")
 plt.legend()
-plt.title("Simulating RPS with C = " + str(C) + ", eps = " + str(eps) + ", N = " + str(N) + ", mu = " + str(mu) + " initial proportions = [1/3,1/3,1/3]")
+plt.title("Simulating RPS with C = " + str(C) + ", eps = " + str(eps) + ", N = " + str(N) + ", mu = " + str(mu))
 plt.show()
 
 '''
