@@ -4,13 +4,13 @@ import copy as cp
 import scipy.stats as st
 import matplotlib.pyplot as plt
 
-N = 5160
+N = 5000
 C = 2.1	
-T = 1000
+T = 500
 eps = -0.2
-mu = 0.0001
+mu = 0
 
-dist = [N//3,N//3,N - N//3 - N//3]
+dist = [4000,500,500]
 
 lCeps = st.poisson(C+eps)
 lCm1 = st.poisson(C-1)
@@ -55,7 +55,7 @@ for t in range(T):
 				if i == j:
 					tmp -= 1
 				tmp = tmp/(N-1)
-				childs[i] += nchilds(M[j][i],int(dist[i]*tmp))
+				childs[i] += nchilds(M[j][i],int(dist[i]*tmp))	
 	mutatechilds(childs)
 	selectOffsprings(childs)
 	for i in range(3):
