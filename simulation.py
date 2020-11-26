@@ -56,10 +56,7 @@ for t in range(T):
 					tmp -= 1
 				tmp = tmp/(N-1)
 				childs[i] += nchilds(M[j][i],int(dist[i]*tmp))
-	print(childs)
 	mutatechilds(childs)
-	print(childs)
-	print("##################")
 	selectOffsprings(childs)
 	for i in range(3):
 		pts[i].append(dist[i])
