@@ -6,11 +6,11 @@ import matplotlib.pyplot as plt
 
 N = 5000
 C = 5	
-T = 500
-eps = -0.2
-mu = 0
+T = 1000
+eps = 0.02
+mu = 0.0001
 
-dist = [4000,500,500] # Has to be sum N
+dist = [N//3,N//3,N-N//3] # Has to be sum N
 
 lCeps = st.poisson(C+eps)
 lCm1 = st.poisson(C-1)
@@ -62,8 +62,8 @@ for t in range(T):
 		pts[i].append(dist[i])
 
 plt.plot(range(T),pts[0], label = "Rock")
-plt.plot(range(T),pts[1], label = "Scissors")
-plt.plot(range(T),pts[2], label = "Scissors")
+plt.plot(range(T),pts[1], label = "Paper")
+plt.plot(range(T),pts[2], label = "Scissor")
 plt.legend()
 plt.title("Simulating RPS with C = " + str(C) + ", eps = " + str(eps) + ", N = " + str(N) + ", mu = " + str(mu))
 plt.show()
