@@ -2,13 +2,14 @@ import numpy as np
 import numpy.random as rd
 import copy as cp
 import scipy.stats as st
+import triangle_plot as tplt
 import matplotlib.pyplot as plt
 
 N = 5000
 C = 5	
-T = 1000
-eps = 0.02
-mu = 0.0001
+T = 200
+eps = 0.2
+mu = 0
 
 dist = [N//3,N//3,N-N//3] # Has to be sum N
 
@@ -61,12 +62,17 @@ for t in range(T):
 	for i in range(3):
 		pts[i].append(dist[i])
 
+plt.title("Simulating RPS with C = " + str(C) + ", eps = " + str(eps) + ", N = " + str(N) + ", mu = " + str(mu))
 plt.plot(range(T),pts[0], label = "Rock")
 plt.plot(range(T),pts[1], label = "Paper")
 plt.plot(range(T),pts[2], label = "Scissor")
 plt.legend()
+plt.show()
+
+tplt.plot_triangle([[x/N for x in pts[0]], [x/N for x in pts[1]]], ["Rock","Paper","Scissor"])
 plt.title("Simulating RPS with C = " + str(C) + ", eps = " + str(eps) + ", N = " + str(N) + ", mu = " + str(mu))
 plt.show()
+
 
 '''
 for t in range(T):
